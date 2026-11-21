@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "description": "Shortcuts for Command Palette: folders of your choice in the Command Palette main search. Installs the Store-signed package of the GitHub release.",
+  "homepage": "https://github.com/xxthunder/CmdPal.Extension.Shortcuts",
+  "license": "MIT",
+  "url": "https://github.com/xxthunder/CmdPal.Extension.Shortcuts/releases/download/v1.0.0/karnomag.ShortcutsforCommandPalette_1.0.0.msixbundle",
+  "hash": "90fd759b164805a2854908d72b5f65f363aacb485258f347250f2f422de21b34",
+  "installer": {
+    "script": [
+      "if ($PSVersionTable.PSVersion.Major -ge 6) { Import-Module Appx -UseWindowsPowerShell 3>$null }",
+      "Add-AppxPackage -Path \"$dir\\$fname\" -ForceApplicationShutdown"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "if ($cmd -eq 'update') { return }",
+      "if ($PSVersionTable.PSVersion.Major -ge 6) { Import-Module Appx -UseWindowsPowerShell 3>$null }",
+      "Get-AppxPackage karnomag.ShortcutsforCommandPalette | Remove-AppxPackage"
+    ]
+  }
+}
